@@ -2,8 +2,9 @@ const express = require('express');
 const app = express();
 const port = 8000;
 const db = require('./config/mongoose');
+const bcrypt = require('bcrypt');
 //its convert form sending data to json data
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended : true}));
 app.use('/',require('./router'));
 
 app.listen(port , function( err ){
