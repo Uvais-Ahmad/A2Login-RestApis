@@ -47,9 +47,9 @@ module.exports.createSession = async function( req , res ){
     try{
         let data = req.body;
         //find via email
-        console.log("Data ",data)
+        
         let user = await User.findOne({email : data.email});
-        console.log('User : ',user)
+        
         let isMatch;
         if(user ){
             isMatch = await bcrypt.compare(data.pass , user.password);
