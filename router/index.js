@@ -4,6 +4,6 @@ const userCont = require('../controller/userController');
 
 
 router.post('/api/v1/register',userCont.register);
-router.get('/api/v1/login',userCont.login);
+router.post('/api/v1/login',userCont.createSession);
 
 module.exports = router;

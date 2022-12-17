@@ -3,6 +3,10 @@ const app = express();
 const port = 8000;
 const db = require('./config/mongoose');
 const bcrypt = require('bcrypt');
+const passport = require('passport');
+const passportJwt = require('./config/passport-jwt');
+
+app.use(passport.initialize());
 //its convert form sending data to json data
 app.use(express.urlencoded({extended : true}));
 app.use('/',require('./router'));
