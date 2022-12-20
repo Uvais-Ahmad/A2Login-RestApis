@@ -16,7 +16,7 @@ module.exports.register = async function(req , res ){
         //Check user is already register
         let existUser = await User.findOne({email : data.email});
         if(existUser){
-            return res.status(200).json({
+            return res.status(409).json({
                 message : "Already you have an account , Please login with same mail "
             })
         }
