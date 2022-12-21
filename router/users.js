@@ -1,10 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const userCont = require('../controller/userController');
+const authenticateToken = require('../config/middleware')
 
 router.post('/register',userCont.register);
 router.post('/login',userCont.createSession);
 
-router.get('/:id/profile');
+router.get('/profile',authenticateToken,userCont.profile);
+
+router.get('/logout',userCont.logOut);
 
 module.exports = router;

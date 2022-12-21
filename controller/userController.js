@@ -62,7 +62,7 @@ module.exports.createSession = async function( req , res ){
             })
         }
 
-        let token =await jwt.sign(user.toJSON() , 'authapi' , {expiresIn : '10000'} );
+        let token =await jwt.sign(user.toJSON() , 'authapi' , {expiresIn : '100000000'} );
 
 
         // user is found
@@ -81,3 +81,25 @@ module.exports.createSession = async function( req , res ){
         })
     }
 }   
+
+
+module.exports.profile = function(req , res ){
+    const { name , email } = req.user;
+
+    return res.status(200).json({
+        message : "Authorised",
+        data : {
+            name : name,
+            email : email
+        }
+    })
+}
+
+module.exports.logOut = function(req , res ){
+
+    // let access_token = req.cookies.access_token;
+
+    return res.clearCookie("access_token").status(200).json({
+        message : "logOut successfully"
+    })
+}
