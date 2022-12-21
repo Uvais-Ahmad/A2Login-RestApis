@@ -64,7 +64,7 @@ module.exports.createSession = async function( req , res ){
 
         let token =await jwt.sign(user.toJSON() , 'authapi' , {expiresIn : '100000000'} );
 
-
+        
         // user is found
         return res.cookie("access_token",token).status(200).json({
             message : "SignIn successfull",
