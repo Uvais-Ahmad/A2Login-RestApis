@@ -1,10 +1,14 @@
 const express = require('express');
 const app = express();
 const port = 8000;
+const cookieParser = require('cookie-parser');
 const db = require('./config/mongoose');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const passportJwt = require('./config/passport-jwt');
+
+//Start the cookie parser
+app.use(cookieParser());
 
 app.use(passport.initialize());
 //its convert form sending data to json data

@@ -62,12 +62,15 @@ module.exports.createSession = async function( req , res ){
             })
         }
 
+        let token =await jwt.sign(user.toJSON() , 'authapi' , {expiresIn : '10000'} );
+
+
         // user is found
-        return res.status(200).json({
-            message : "SignIn successfull  , Here is your token please kept it safe",
+        return res.cookie("access_token",token).status(200).json({
+            message : "SignIn successfull",
             data : {
                 //here we generate the token using encrpt key "codeial"
-                token : jwt.sign(user.toJSON() , 'authapi' , {expiresIn : '10000'} ) 
+                access_token : token 
             }
         })
     }
