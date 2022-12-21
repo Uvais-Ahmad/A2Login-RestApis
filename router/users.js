@@ -10,4 +10,6 @@ router.get('/profile',authenticateToken,userCont.profile);
 
 router.get('/logout',userCont.logOut);
 
+router.use('/admin',require('./admin'));
+
 module.exports = router;
