@@ -11,7 +11,7 @@ module.exports.register = async function(req , res ){
         //it checks validation at router level and result show in Controller
         let errors = await validationResult(req);
         if (!errors.isEmpty()) {
-            return res.status(412).json({ message : "Validation failed",hint : "Remember that, password must be min length 8",errors: errors.array() });
+            return res.status(412).json({ message : "Validation failed",errors: errors.array() });
         }
 
         //check user passwords
@@ -58,7 +58,7 @@ module.exports.createSession = async function( req , res ){
         //it checks validation at router level and result show in Controller
         let errors = await validationResult(req);
         if (!errors.isEmpty()) {
-            return res.status(412).json({ message : "Validation failed",hint : "Remember that, password must be min length 8",errors: errors.array() });
+            return res.status(412).json({ message : "Validation failed",errors: errors.array() });
         }
 
         //find via email
@@ -76,8 +76,7 @@ module.exports.createSession = async function( req , res ){
                 
             })
         }
-
-        let token =await jwt.sign(user.toJSON() , 'authapi' , {expiresIn : '100000000'} );
+        let token =await jwt.sign(user.toJSON() , process.env.JWT_Secret , {expiresIn : '100000000'} );
 
         
         // user is found

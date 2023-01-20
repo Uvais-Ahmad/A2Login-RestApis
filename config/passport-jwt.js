@@ -3,10 +3,11 @@ const JWTStrategy = require('passport-jwt').Strategy;
 const ExtractJWT = require ('passport-jwt').ExtractJwt;
 const jwt = require('jsonwebtoken');
 const User = require('../models/user')
+require('dotenv').config();
 
 const opts = {
     jwtFromRequest : ExtractJWT.fromAuthHeaderAsBearerToken() ,
-    secretOrKey : 'authapi'
+    secretOrKey : process.env.JWT_Secret
 }
 
 // new JwtStrategy(opts , verify);
