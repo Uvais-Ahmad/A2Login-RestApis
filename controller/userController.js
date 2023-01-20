@@ -11,8 +11,8 @@ module.exports.register = async function(req , res ){
         //it checks validation at router level and result show in Controller
         let errors = await validationResult(req);
         if (!errors.isEmpty()) {
-            return res.status(400).json({ message : "Validation failed",hint : "Remember that, password must be min length 8",errors: errors.array() });
-          }
+            return res.status(412).json({ message : "Validation failed",hint : "Remember that, password must be min length 8",errors: errors.array() });
+        }
 
         //check user passwords
         if(data.pass != data.confirm_pass){
@@ -54,6 +54,13 @@ module.exports.register = async function(req , res ){
 module.exports.createSession = async function( req , res ){
     try{
         let data = req.body;
+
+        //it checks validation at router level and result show in Controller
+        let errors = await validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(412).json({ message : "Validation failed",hint : "Remember that, password must be min length 8",errors: errors.array() });
+        }
+
         //find via email
         
         let user = await User.findOne({email : data.email});

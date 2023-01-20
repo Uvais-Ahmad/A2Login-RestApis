@@ -6,12 +6,12 @@ const { body } = require('express-validator');
 //we validate at the router level
 
 router.post('/register',
-                        body('email').isEmail(),
-                        body('pass').isLength({min : 8})
-                        ,userCont.register);
+                        body('email').isEmail().withMessage("should be email format"),
+                        body('pass').isLength({min : 8}).withMessage("Must be length of 8 character"),
+                        userCont.register);
 router.post('/login',
-                        body('email').isEmail(),
-                        body('pass').isLength({min : 8}),
+                        body('email').isEmail().withMessage("should be email format"),
+                        body('pass').isLength({min : 8}).withMessage("Must be length of 8 character"),
                         userCont.createSession);
 
 router.get('/profile',authenticateToken,userCont.profile);

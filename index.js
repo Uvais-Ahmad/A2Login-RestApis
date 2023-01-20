@@ -6,6 +6,7 @@ const db = require('./config/mongoose');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const passportJwt = require('./config/passport-jwt');
+const dotenv = require('dotenv').config();
 
 //Start the cookie parser
 app.use(cookieParser());
