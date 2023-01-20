@@ -3,9 +3,17 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const jwt = require('jsonwebtoken');
 
+const {body , validationResult } = require('express-validator');
+
 module.exports.register = async function(req , res ){
     try{
         let data = req.body;
+        //it checks validation at router level and result show in Controller
+        let errors = await validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ message : "Validation failed",hint : "Remember that, password must be min length 8",errors: errors.array() });
+          }
+
         //check user passwords
         if(data.pass != data.confirm_pass){
             return res.status(401).json({
