@@ -4,7 +4,8 @@
   "description": "This is the demo Auth API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "Uvais Ahmad",
   "license": "ISC",
@@ -19,7 +20,6 @@
     "mongoose": "^6.8.0",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.0",
-    "passport-local": "^1.0.0",
-    "validator": "^13.7.0"
+    "passport-local": "^1.0.0"
   }
 }
