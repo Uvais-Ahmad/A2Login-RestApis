@@ -7,8 +7,10 @@ Here we can register as a new user and LogIn as a existing user via REST APIs.
 <br/>
 
 ## Features
+- While SignUp not actual password store. store hashed password
 - We use JWT Auth to Authenticate
 - When the user successfully logIn It got the token . Known as AccessToken
+- All input value must be valid its check by npm package Express-validator
  
 
 <br/>
@@ -29,11 +31,14 @@ Here we can register as a new user and LogIn as a existing user via REST APIs.
   <br/>
 
 ## Tools Used
+- Create server : *Express*
 - Mongodb for storing user details
+- Data validation : *Express-validator*
+- Private url or data : *ENV*
 - Postman for testing
-- Version Control System: Git
-- VCS Hosting: GitHub
-- Integrated Development Environment: VSCode
+- Version Control System: *Git*
+- VCS Hosting: *GitHub*
+- Integrated Development Environment: *VSCode*
   <br/>
   <br/>
 
