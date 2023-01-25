@@ -7,8 +7,10 @@ Here we can register as a new user and LogIn as a existing user via REST APIs.
 <br/>
 
 ## Features
+- While SignUp not actual password store. store hashed password
 - We use JWT Auth to Authenticate
 - When the user successfully logIn It got the token . Known as AccessToken
+- All input value must be valid its check by npm package Express-validator
  
 
 <br/>
@@ -16,24 +18,39 @@ Here we can register as a new user and LogIn as a existing user via REST APIs.
 
 ## Routes & URL
 
-- **localhost:8000/api/v1/register**
+- **https://a2-login-restapis.onrender.com/api/v1/register**
   <p>To register as a new user</p>
   **we need to paas some values**
   *name , email , pass , confirm_pass*
+  *Please make sure or field value must valid*
 
 
-- **localhost:8000/api/v1/create-server**
+- **https://a2-login-restapis.onrender.com/api/v1/login**
   <p>To login as a existing user</p>
   **we need to paas some values**
   *email , pass*
+  *Please make sure or field value must valid*
+  <br/>
+  
+  - **https://a2-login-restapis.onrender.com/api/v1/profile**
+  <p>To see profile of logged in user</p>
+  **we don't to paas authToken if you test on postman**
+  <br/>
+  
+  - **https://a2-login-restapis.onrender.com/api/v1/logout**
+  <p>to loggin out</p>
+  **we don't to paas authToken if you test on postman**
   <br/>
 
 ## Tools Used
+- Create server : *Express*
 - Mongodb for storing user details
+- Data validation : *Express-validator*
+- Private url or data : *ENV*
 - Postman for testing
-- Version Control System: Git
-- VCS Hosting: GitHub
-- Integrated Development Environment: VSCode
+- Version Control System: *Git*
+- VCS Hosting: *GitHub*
+- Integrated Development Environment: *VSCode*
   <br/>
   <br/>
 
