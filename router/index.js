@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-app.get('/', (req , res )=>{
+router.get('/', (req , res )=>{
     return res.status(200).json({
         message : "Home For A2 LogIn Rest APIs",
         Routes : {
