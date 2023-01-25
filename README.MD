@@ -15,6 +15,9 @@ Here we can register as a new user and LogIn as a existing user via REST APIs.
 
 <br/>
 
+## Hosted (Deployed ) URL
+ - **https://a2-login-restapis.onrender.com**
+ This is the main Home deployed URL link.
 
 ## Routes & URL
 
